@@ -9,13 +9,19 @@
 /* Begin PBXBuildFile section */
 		BF55742623E49F43007959B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55742523E49F43007959B2 /* AppDelegate.swift */; };
 		BF55742823E49F43007959B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55742723E49F43007959B2 /* SceneDelegate.swift */; };
-		BF55742A23E49F43007959B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55742923E49F43007959B2 /* ViewController.swift */; };
+		BF55742A23E49F43007959B2 /* FormListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55742923E49F43007959B2 /* FormListViewController.swift */; };
 		BF55742D23E49F43007959B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF55742B23E49F43007959B2 /* Main.storyboard */; };
 		BF55743023E49F43007959B2 /* Forms_CoreData_Demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF55742E23E49F43007959B2 /* Forms_CoreData_Demo.xcdatamodeld */; };
 		BF55743223E49F49007959B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF55743123E49F49007959B2 /* Assets.xcassets */; };
 		BF55743523E49F49007959B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF55743323E49F49007959B2 /* LaunchScreen.storyboard */; };
 		BF55744023E49F4A007959B2 /* Forms_CoreData_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55743F23E49F4A007959B2 /* Forms_CoreData_DemoTests.swift */; };
 		BF55744B23E49F4A007959B2 /* Forms_CoreData_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55744A23E49F4A007959B2 /* Forms_CoreData_DemoUITests.swift */; };
+		BF55745A23E4A0C6007959B2 /* NewFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55745923E4A0C6007959B2 /* NewFormViewController.swift */; };
+		BF55745C23E4A0DD007959B2 /* FormListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55745B23E4A0DD007959B2 /* FormListViewModel.swift */; };
+		BF55745F23E4A0FA007959B2 /* NewFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55745E23E4A0FA007959B2 /* NewFormViewModel.swift */; };
+		BF55746223E4A11D007959B2 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55746123E4A11D007959B2 /* FormData.swift */; };
+		BF55746523E4A1B7007959B2 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55746423E4A1B7007959B2 /* StorageService.swift */; };
+		BF55746823E4A23A007959B2 /* FormDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55746723E4A23A007959B2 /* FormDataTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +45,7 @@
 		BF55742223E49F43007959B2 /* Forms-CoreData-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Forms-CoreData-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF55742523E49F43007959B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF55742723E49F43007959B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF55742923E49F43007959B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF55742923E49F43007959B2 /* FormListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormListViewController.swift; sourceTree = "<group>"; };
 		BF55742C23E49F43007959B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF55742F23E49F43007959B2 /* Forms_CoreData_Demo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Forms_CoreData_Demo.xcdatamodel; sourceTree = "<group>"; };
 		BF55743123E49F49007959B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +57,12 @@
 		BF55744623E49F4A007959B2 /* Forms-CoreData-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Forms-CoreData-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF55744A23E49F4A007959B2 /* Forms_CoreData_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forms_CoreData_DemoUITests.swift; sourceTree = "<group>"; };
 		BF55744C23E49F4A007959B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF55745923E4A0C6007959B2 /* NewFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFormViewController.swift; sourceTree = "<group>"; };
+		BF55745B23E4A0DD007959B2 /* FormListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormListViewModel.swift; sourceTree = "<group>"; };
+		BF55745E23E4A0FA007959B2 /* NewFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFormViewModel.swift; sourceTree = "<group>"; };
+		BF55746123E4A11D007959B2 /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
+		BF55746423E4A1B7007959B2 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		BF55746723E4A23A007959B2 /* FormDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDataTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +113,12 @@
 		BF55742423E49F43007959B2 /* Forms-CoreData-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				BF55746323E4A1A4007959B2 /* Utility */,
+				BF55746023E4A109007959B2 /* Model */,
+				BF55745D23E4A0E2007959B2 /* ViewModel */,
+				BF55745823E4A09F007959B2 /* View */,
 				BF55742523E49F43007959B2 /* AppDelegate.swift */,
 				BF55742723E49F43007959B2 /* SceneDelegate.swift */,
-				BF55742923E49F43007959B2 /* ViewController.swift */,
 				BF55742B23E49F43007959B2 /* Main.storyboard */,
 				BF55743123E49F49007959B2 /* Assets.xcassets */,
 				BF55743323E49F49007959B2 /* LaunchScreen.storyboard */,
@@ -129,6 +144,49 @@
 				BF55744C23E49F4A007959B2 /* Info.plist */,
 			);
 			path = "Forms-CoreData-DemoUITests";
+			sourceTree = "<group>";
+		};
+		BF55745823E4A09F007959B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF55746623E4A203007959B2 /* TableViewCell */,
+				BF55742923E49F43007959B2 /* FormListViewController.swift */,
+				BF55745923E4A0C6007959B2 /* NewFormViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF55745D23E4A0E2007959B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BF55745B23E4A0DD007959B2 /* FormListViewModel.swift */,
+				BF55745E23E4A0FA007959B2 /* NewFormViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BF55746023E4A109007959B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF55746123E4A11D007959B2 /* FormData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF55746323E4A1A4007959B2 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				BF55746423E4A1B7007959B2 /* StorageService.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		BF55746623E4A203007959B2 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF55746723E4A23A007959B2 /* FormDataTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +320,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF55742A23E49F43007959B2 /* ViewController.swift in Sources */,
+				BF55742A23E49F43007959B2 /* FormListViewController.swift in Sources */,
+				BF55745F23E4A0FA007959B2 /* NewFormViewModel.swift in Sources */,
 				BF55742623E49F43007959B2 /* AppDelegate.swift in Sources */,
+				BF55746823E4A23A007959B2 /* FormDataTableViewCell.swift in Sources */,
+				BF55745C23E4A0DD007959B2 /* FormListViewModel.swift in Sources */,
 				BF55743023E49F43007959B2 /* Forms_CoreData_Demo.xcdatamodeld in Sources */,
 				BF55742823E49F43007959B2 /* SceneDelegate.swift in Sources */,
+				BF55745A23E4A0C6007959B2 /* NewFormViewController.swift in Sources */,
+				BF55746523E4A1B7007959B2 /* StorageService.swift in Sources */,
+				BF55746223E4A11D007959B2 /* FormData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
