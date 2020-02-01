@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="157" id="GNl-WF-9lg" customClass="FormDataTableViewCell" customModule="Forms_CoreData_Demo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FormDataTableViewCell" rowHeight="157" id="GNl-WF-9lg" customClass="FormDataTableViewCell" customModule="Forms_CoreData_Demo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="157"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GNl-WF-9lg" id="Pqh-bd-h7o">
@@ -86,7 +86,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="6mI-Ui-wmt" firstAttribute="centerY" secondItem="GT3-DF-Lm9" secondAttribute="centerY" id="6YC-ar-8uf"/>
                                                         <constraint firstAttribute="trailing" secondItem="6mI-Ui-wmt" secondAttribute="trailing" constant="8" id="Vc2-jf-SrL"/>
@@ -113,7 +113,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="Zph-o7-7ma" secondAttribute="trailing" constant="8" id="8Co-5n-jTt"/>
                                                         <constraint firstItem="Qb6-it-0IZ" firstAttribute="centerY" secondItem="P6a-ZA-ttR" secondAttribute="centerY" id="Fba-BY-UFB"/>
@@ -124,9 +124,6 @@
                                                 </view>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YfZ-qn-7eN">
                                                     <rect key="frame" x="28" y="101" width="358" height="38"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="ITS-AF-FL2"/>
-                                                    </constraints>
                                                     <segments>
                                                         <segment title="Invite"/>
                                                         <segment title="Inbox"/>
@@ -163,6 +160,17 @@
                                                 <constraint firstItem="UTT-sR-jMO" firstAttribute="width" secondItem="Pqh-bd-h7o" secondAttribute="width" multiplier="0.235507" id="ySs-AB-d6y"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="UTT-sR-jMO" id="llT-u9-f8T"/>
+                                            <outlet property="jobTermContainerView" destination="P6a-ZA-ttR" id="w9x-WE-mC9"/>
+                                            <outlet property="jobTermLabel" destination="Zph-o7-7ma" id="DeC-1X-s2Z"/>
+                                            <outlet property="optionButton" destination="qaK-qz-bTD" id="apg-bl-lNJ"/>
+                                            <outlet property="rateContainerView" destination="j4j-8z-3uL" id="v7u-hm-Y0e"/>
+                                            <outlet property="rateLabel" destination="6mI-Ui-wmt" id="hnn-fF-WtL"/>
+                                            <outlet property="segmentedControl" destination="YfZ-qn-7eN" id="rM0-rZ-qiq"/>
+                                            <outlet property="titleLabel" destination="EYd-DC-5ax" id="BLw-Fq-NvB"/>
+                                            <outlet property="viewCounterLabel" destination="Zra-5O-DQO" id="qZe-0a-NZF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -177,6 +185,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="1VH-nL-5r7"/>
+                    <connections>
+                        <outlet property="tableView" destination="cqC-U5-les" id="bhu-6d-rMo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
