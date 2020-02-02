@@ -33,3 +33,9 @@ extension CALayer {
         addSublayer(border)
     }
 }
+
+extension UITextField {
+    func isEmpty() -> Bool {
+        return self.text?.count == 0
+    }
+}
