@@ -28,5 +28,9 @@ enum JobTerm:String, CaseIterable {
 }
 
 class NewFormViewModel {
+    var formData:FormData?
     
+    func saveFormData(formTitle: String, description: String?, budget: Int, rate: Rate, payment: PaymentMethod, jobTerm: JobTerm, startDate: String, attachmentPath: String?) {
+        formData = FormData(formTitle: formTitle, description: description, budget: budget, rate: rate, payment: payment, jobTerm: jobTerm, startDate: startDate, attachmentPath: attachmentPath)
+    }
 }
