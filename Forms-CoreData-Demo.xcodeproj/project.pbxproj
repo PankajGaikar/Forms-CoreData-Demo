@@ -22,6 +22,7 @@
 		BF55746223E4A11D007959B2 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55746123E4A11D007959B2 /* FormData.swift */; };
 		BF55746523E4A1B7007959B2 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55746423E4A1B7007959B2 /* StorageService.swift */; };
 		BF55746823E4A23A007959B2 /* FormDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55746723E4A23A007959B2 /* FormDataTableViewCell.swift */; };
+		BFEA54EE23E763470095C1B1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEA54ED23E763470095C1B1 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		BF55746123E4A11D007959B2 /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		BF55746423E4A1B7007959B2 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		BF55746723E4A23A007959B2 /* FormDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDataTableViewCell.swift; sourceTree = "<group>"; };
+		BFEA54ED23E763470095C1B1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				BF55746423E4A1B7007959B2 /* StorageService.swift */,
+				BFEA54ED23E763470095C1B1 /* Extensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				BF55742823E49F43007959B2 /* SceneDelegate.swift in Sources */,
 				BF55745A23E4A0C6007959B2 /* NewFormViewController.swift in Sources */,
 				BF55746523E4A1B7007959B2 /* StorageService.swift in Sources */,
+				BFEA54EE23E763470095C1B1 /* Extensions.swift in Sources */,
 				BF55746223E4A11D007959B2 /* FormData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

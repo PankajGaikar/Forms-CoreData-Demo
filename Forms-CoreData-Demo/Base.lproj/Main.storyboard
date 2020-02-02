@@ -202,7 +202,7 @@
         <!--New Form-->
         <scene sceneID="NIs-4y-PcJ">
             <objects>
-                <viewController id="JqK-fF-WoE" sceneMemberID="viewController">
+                <viewController id="JqK-fF-WoE" customClass="NewFormViewController" customModule="Forms_CoreData_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U4y-1d-qJB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -364,7 +364,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="K8D-Sg-9Vi" secondAttribute="bottom" id="x3C-e0-fVe"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFB-Lp-5S4" userLabel="Budget Container">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFB-Lp-5S4" userLabel="Rate Container">
                                                 <rect key="frame" x="20" y="257" width="174.5" height="67"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hr-OA-aR6">
@@ -399,7 +399,7 @@
                                                     <constraint firstItem="3hr-OA-aR6" firstAttribute="top" secondItem="AFB-Lp-5S4" secondAttribute="top" id="ouv-W3-MhL"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVC-PZ-288" userLabel="Currency Container">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVC-PZ-288" userLabel="Payment Container">
                                                 <rect key="frame" x="219.5" y="257" width="174.5" height="67"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Method" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBj-jS-EYw">
@@ -434,7 +434,7 @@
                                                     <constraint firstItem="yBj-jS-EYw" firstAttribute="leading" secondItem="IVC-PZ-288" secondAttribute="leading" id="qTF-49-nod"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAP-hW-ULu" userLabel="Budget Container">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAP-hW-ULu" userLabel="Date Container">
                                                 <rect key="frame" x="20" y="336" width="174.5" height="67"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgx-Li-U67">
@@ -469,7 +469,7 @@
                                                     <constraint firstItem="Pgx-Li-U67" firstAttribute="top" secondItem="BAP-hW-ULu" secondAttribute="top" id="zIw-xo-GbQ"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVY-a8-kSr" userLabel="Currency Container">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVY-a8-kSr" userLabel="Job Term Container">
                                                 <rect key="frame" x="219.5" y="336" width="174.5" height="67"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Term" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9X8-d4-jhg">
@@ -555,6 +555,9 @@
                                             <constraint firstAttribute="width" constant="90" id="Xkm-2r-CSw"/>
                                         </constraints>
                                         <state key="normal" image="Add attachment"/>
+                                        <connections>
+                                            <action selector="addNewAttachmentAction:" destination="JqK-fF-WoE" eventType="touchUpInside" id="vH8-Dg-sbH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBe-eR-d45">
                                         <rect key="frame" x="100" y="5" width="90" height="90"/>
@@ -562,6 +565,9 @@
                                             <constraint firstAttribute="width" constant="90" id="EF5-jt-kqg"/>
                                             <constraint firstAttribute="height" constant="90" id="Uxp-6w-q5H"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="previewAttachmentOneAction:" destination="JqK-fF-WoE" eventType="touchUpInside" id="4MT-1z-jaI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ys7-CG-JOx">
                                         <rect key="frame" x="195" y="5" width="90" height="90"/>
@@ -569,6 +575,9 @@
                                             <constraint firstAttribute="width" constant="90" id="7Y8-Za-mdm"/>
                                             <constraint firstAttribute="height" constant="90" id="Nfs-st-XXm"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="previewAttachmentTwoAction:" destination="JqK-fF-WoE" eventType="touchUpInside" id="j7F-rm-DvQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -599,6 +608,45 @@
                         <viewLayoutGuide key="safeArea" id="oe9-kD-KbJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Form" id="AGM-aE-aDG"/>
+                    <connections>
+                        <outlet property="addNewAttachmentButton" destination="hiV-dr-3zI" id="1RN-Pu-c1w"/>
+                        <outlet property="attachmentContainer" destination="bLF-7f-ebL" id="eFo-6Y-iKY"/>
+                        <outlet property="attachmentOneButton" destination="uBe-eR-d45" id="Dpe-Mf-diM"/>
+                        <outlet property="attachmentTwoButton" destination="Ys7-CG-JOx" id="OCf-TH-aAb"/>
+                        <outlet property="budgetContainer" destination="7n8-08-Dvj" id="zwN-9W-g7F"/>
+                        <outlet property="budgetInfoLabel" destination="9KY-OY-0Ll" id="4lF-KB-F5E"/>
+                        <outlet property="budgetLabel" destination="HzO-EV-cgl" id="AoQ-FU-ssL"/>
+                        <outlet property="budgetTextField" destination="IKk-w1-DH6" id="K3E-bg-j5g"/>
+                        <outlet property="currencyContainer" destination="ufi-mk-BQh" id="I0w-Rw-Ri6"/>
+                        <outlet property="currencyImageView" destination="4bg-Lq-5Nd" id="IiF-zV-m9d"/>
+                        <outlet property="currencyInfoLabel" destination="K8D-Sg-9Vi" id="u6E-Jb-sc6"/>
+                        <outlet property="currencyLabel" destination="3L8-2y-S1L" id="OQc-Sx-HGF"/>
+                        <outlet property="currencyTextField" destination="GCo-aE-mrK" id="BOM-xh-9wq"/>
+                        <outlet property="dateContainer" destination="BAP-hW-ULu" id="d1C-5q-49H"/>
+                        <outlet property="dateInfoLabel" destination="hUP-y6-lsA" id="7eV-Sj-umA"/>
+                        <outlet property="dateLabel" destination="Pgx-Li-U67" id="7G5-o3-R9z"/>
+                        <outlet property="dateTextField" destination="Wkx-9b-KPI" id="b7a-sQ-e5M"/>
+                        <outlet property="formDescriptionContainer" destination="rGd-UY-N6U" id="oKv-ow-aSH"/>
+                        <outlet property="formDescriptionInfoLabel" destination="Aox-Mc-9ex" id="jLm-AA-Yfk"/>
+                        <outlet property="formDescriptionLabel" destination="jfu-dY-W85" id="7ev-Cy-yMk"/>
+                        <outlet property="formDescriptionTextField" destination="tt5-rF-DS5" id="3PZ-Px-Kag"/>
+                        <outlet property="formTitleContainer" destination="deV-Sh-ssc" id="wKU-Gl-R7Z"/>
+                        <outlet property="formTitleInfoLabel" destination="nVc-GX-lTs" id="K0w-RP-7KJ"/>
+                        <outlet property="formTitleLabel" destination="i7x-rU-ySa" id="CYK-WL-leW"/>
+                        <outlet property="formTitleTextField" destination="dTA-ax-rVY" id="vWn-O3-TxS"/>
+                        <outlet property="jobTermContainer" destination="bVY-a8-kSr" id="xZ4-ss-6yf"/>
+                        <outlet property="jobTermInfoLabel" destination="co2-qi-YWF" id="6sF-pk-sSA"/>
+                        <outlet property="jobTermLabel" destination="9X8-d4-jhg" id="649-ld-JdU"/>
+                        <outlet property="jobTermTextField" destination="YkF-7X-8bH" id="AWu-Is-1ZW"/>
+                        <outlet property="paymentContainer" destination="IVC-PZ-288" id="cMi-mh-anF"/>
+                        <outlet property="paymentInfoLabel" destination="aOF-uE-81M" id="spi-Jl-aoO"/>
+                        <outlet property="paymentLabel" destination="yBj-jS-EYw" id="wQY-6F-bSe"/>
+                        <outlet property="paymentTextField" destination="4dT-mK-X3X" id="rlD-iw-bwi"/>
+                        <outlet property="rateContainer" destination="AFB-Lp-5S4" id="qIH-ER-rQY"/>
+                        <outlet property="rateInfoLabel" destination="amK-N9-U9Z" id="k0S-uR-fdr"/>
+                        <outlet property="rateLabel" destination="3hr-OA-aR6" id="pFI-yX-FAX"/>
+                        <outlet property="rateTextField" destination="kxe-8U-tvP" id="ilf-KY-fvK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFE-Cz-ZB1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
