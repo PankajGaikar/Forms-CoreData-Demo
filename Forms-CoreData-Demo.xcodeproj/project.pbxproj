@@ -65,6 +65,8 @@
 		BF55746423E4A1B7007959B2 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		BF55746723E4A23A007959B2 /* FormDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDataTableViewCell.swift; sourceTree = "<group>"; };
 		BFEA54ED23E763470095C1B1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BFEA54EF23E7787C0095C1B1 /* FormDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormDataModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BFEA54F023E7787C0095C1B1 /* FormDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormDataModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,8 @@
 		BF55746023E4A109007959B2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BFEA54EF23E7787C0095C1B1 /* FormDataModel+CoreDataClass.swift */,
+				BFEA54F023E7787C0095C1B1 /* FormDataModel+CoreDataProperties.swift */,
 				BF55746123E4A11D007959B2 /* FormData.swift */,
 			);
 			path = Model;
