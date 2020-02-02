@@ -56,6 +56,13 @@ class NewFormViewController: UIViewController {
     @IBOutlet weak var addNewAttachmentButton: UIButton!
     @IBOutlet weak var attachmentOneButton: UIButton!
     @IBOutlet weak var attachmentTwoButton: UIButton!
+
+    let pickerView = UIPickerView()
+    let datePickerView = UIDatePicker()
+
+    var selectedTextField: UITextField?
+    var selectedPickerIndex = 0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +96,38 @@ class NewFormViewController: UIViewController {
         jobTermTextField.layer.addBorder(edge: .bottom, color: UIColor.gray, thickness: 1)
         formTitleTextField.layer.addBorder(edge: .bottom, color: UIColor.gray, thickness: 1)
         formDescriptionTextField.layer.addBorder(edge: .bottom, color: UIColor.gray, thickness: 1)
+        
+        createPickerView()
+        createDatePicker()
+    }
+    
+    func createPickerView()  {
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donedatePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelDatePicker))
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        rateTextField.inputAccessoryView = toolbar
+        rateTextField.inputView = pickerView
+        paymentTextField.inputAccessoryView = toolbar
+        paymentTextField.inputView = pickerView
+        jobTermTextField.inputAccessoryView = toolbar
+        jobTermTextField.inputView = pickerView
+    }
+    
+    func createDatePicker(){
+        datePickerView.datePickerMode = .date
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donedatePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelDatePicker))
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        self.dateTextField.inputAccessoryView = toolbar
+        self.dateTextField.inputView = datePickerView
     }
     
     @IBAction func addNewAttachmentAction(_ sender: Any) {
@@ -103,8 +142,198 @@ class NewFormViewController: UIViewController {
         
     }
     
+    @IBAction func sendButtonAction(_ sender: Any) {
+        
+    }
 }
 
 extension NewFormViewController {
+    @objc func donedatePicker(){
+        if selectedTextField == self.dateTextField {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMMM dd, yyyy"
+            selectedTextField?.text = formatter.string(from: datePickerView.date)
+        }
+        else {
+            if let activeTextField = selectedTextField, activeTextField.isEmpty() {
+                switch selectedTextField {
+                case rateTextField:
+                    selectedTextField?.text = Rate.allCases[selectedPickerIndex].rawValue
+                    
+                case paymentTextField:
+                    selectedTextField?.text = PaymentMethod.allCases[selectedPickerIndex].rawValue
+                    
+                case jobTermTextField:
+                    selectedTextField?.text = JobTerm.allCases[selectedPickerIndex].rawValue
+                    
+                default:
+                    selectedTextField?.text = ""
+                }
+
+            }
+        }
+        self.view.endEditing(true)
+        validateRequiredFields()
+    }
+        
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }
+}
+
+extension NewFormViewController {
+    func validateRequiredFields() {
+        if (!formTitleTextField.isEmpty()
+            && !budgetTextField.isEmpty()
+            && !dateTextField.isEmpty()) {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+        }
+        else {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }
+    }
+
+
+    func updateRequiredFields(currentField:UITextField) {
+        self.setRequiredLabelsTheme(view: currentField, color: UIColor.darkGray)
+
+        switch currentField {
+        case self.budgetTextField:
+            if self.formTitleTextField.isEmpty() {
+                self.setRequiredLabelsTheme(view: self.formTitleTextField, color: UIColor.red)
+            }
+        case self.rateTextField:
+            if self.formTitleTextField.isEmpty() {
+                self.setRequiredLabelsTheme(view: self.formTitleTextField, color: UIColor.red)
+            }
+            if self.budgetTextField.isEmpty() {
+                self.setRequiredLabelsTheme(view: self.budgetTextField, color: UIColor.red)
+            }
+        case self.paymentTextField:
+            if self.formTitleTextField.isEmpty() {
+                self.setRequiredLabelsTheme(view: self.formTitleTextField, color: UIColor.red)
+            }
+            if self.budgetTextField.isEmpty() {
+                self.setRequiredLabelsTheme(view: self.budgetTextField, color: UIColor.red)
+            }
+
+        case self.dateTextField:
+            if self.formTitleTextField.isEmpty() {
+                self.setRequiredLabelsTheme(view: self.formTitleTextField, color: UIColor.red)
+            }
+            if self.budgetTextField.isEmpty() {
+                self.setRequiredLabelsTheme(view: self.budgetTextField, color: UIColor.red)
+            }
+        case self.jobTermTextField:
+            if self.formTitleTextField.isEmpty() {
+                self.setRequiredLabelsTheme(view: self.formTitleTextField, color: UIColor.red)
+            }
+            if self.budgetTextField.isEmpty() {
+                self.setRequiredLabelsTheme(view: self.budgetTextField, color: UIColor.red)
+            }
+            if self.dateTextField.isEmpty() {
+                self.setRequiredLabelsTheme(view: self.datePickerView, color: UIColor.red)
+            }
+
+        default:
+            break
+        }
+    }
+    
+    func setRequiredLabelsTheme(view:UIView, color:UIColor , hideReqLbl:Bool = false) {
+        if let textField = view as? UITextField {
+            switch textField {
+            case self.formTitleTextField:
+                self.formTitleInfoLabel.textColor = (color == UIColor.red) ? color : UIColor.gray
+                self.formTitleInfoLabel.isHidden = hideReqLbl
+            case self.budgetTextField:
+                self.budgetInfoLabel.textColor = (color == UIColor.red) ? color : UIColor.gray
+                self.budgetInfoLabel.isHidden = hideReqLbl
+            case self.dateTextField:
+                self.dateInfoLabel.textColor = (color == UIColor.red) ? color : UIColor.gray
+                self.dateInfoLabel.isHidden = hideReqLbl
+            default:
+                break
+            }
+        }
+        view.layer.addBorder(edge: .bottom, color: color, thickness: 1.0)
+    }
+
+}
+
+extension NewFormViewController: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        selectedTextField = textField
+        pickerView.reloadAllComponents()
+        selectedPickerIndex = 0
+        pickerView.selectRow(selectedPickerIndex, inComponent: 0, animated: true)
+    }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+}
+
+extension NewFormViewController:UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch selectedTextField {
+        case rateTextField:
+            return Rate.allCases.count
+            
+        case paymentTextField:
+            return PaymentMethod.allCases.count
+            
+        case jobTermTextField:
+            return JobTerm.allCases.count
+            
+        default:
+            return 0
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+        switch selectedTextField {
+        case rateTextField:
+            return Rate.allCases[row].rawValue
+            
+        case paymentTextField:
+            return PaymentMethod.allCases[row].rawValue
+            
+        case jobTermTextField:
+            return JobTerm.allCases[row].rawValue
+            
+        default:
+            return ""
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedPickerIndex = row
+        switch selectedTextField {
+        case rateTextField:
+            selectedTextField?.text = Rate.allCases[row].rawValue
+            
+        case paymentTextField:
+            selectedTextField?.text = PaymentMethod.allCases[row].rawValue
+            
+        case jobTermTextField:
+            selectedTextField?.text = JobTerm.allCases[row].rawValue
+
+        default:
+            selectedTextField?.text = ""
+        }
+    }
     
 }
