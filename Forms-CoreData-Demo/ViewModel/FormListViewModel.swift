@@ -21,11 +21,12 @@ class FormListViewModel {
     
     func retrieveFormData() {
         //FIXME: If fetch can be done on background.
-        self.data = StorageService().retrieveAllForms()
-        self.dataFetchDelegate?.dataFetchComplete()
+        data = StorageService().retrieveAllForms()
+        dataFetchDelegate?.dataFetchComplete()
     }
     
     func deleteForm(id: String) -> Void {
         StorageService().deleteForm(id: id)
+        retrieveFormData()
     }
 }

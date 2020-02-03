@@ -16,12 +16,18 @@ class FormListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.estimatedRowHeight = 100 //Approx
-        self.tableView.rowHeight = UITableView.automaticDimension
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = 100 //Approx
+        tableView.rowHeight = UITableView.automaticDimension
+        //Hide empty rows
+        tableView.tableFooterView = UIView()
+
         formListViewModel.dataFetchDelegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         formListViewModel.retrieveFormData()
     }
 }
@@ -76,7 +82,6 @@ extension FormListViewController: FormDataCellDelegate {
             if self.formListViewModel.data.count > index {
                 let formObj = self.formListViewModel.data[index]
                 self.formListViewModel.deleteForm(id: formObj.formID)
-                self.tableView.reloadData()
             }
         }
         let image = UIImage(named: "Trash_icon")
