@@ -226,7 +226,6 @@ extension NewFormViewController {
         }
     }
 
-
     func updateRequiredFields(currentField:UITextField) {
         self.setRequiredLabelsTheme(view: currentField, color: UIColor.darkGray)
 
@@ -273,6 +272,40 @@ extension NewFormViewController {
         }
     }
     
+    func showRelatedLabel(currentField:UITextField) {
+
+        switch currentField {
+            
+        case budgetTextField:
+            budgetLabel.isHidden = false
+            
+        case rateTextField:
+            rateLabel.isHidden = false
+            
+        case paymentTextField:
+            paymentLabel.isHidden = false
+            
+        case dateTextField:
+            dateLabel.isHidden = false
+            
+        case jobTermTextField:
+            jobTermLabel.isHidden = false
+            
+        case budgetTextField:
+            budgetLabel.isHidden = false
+            
+        case formTitleTextField:
+            formTitleLabel.isHidden = false
+            
+        case formDescriptionTextField:
+            formDescriptionLabel.isHidden = false
+            
+        default:
+            print("Default case?")
+            break
+        }
+    }
+    
     func setRequiredLabelsTheme(view:UIView, color:UIColor , hideReqLbl:Bool = false) {
         if let textField = view as? UITextField {
             switch textField {
@@ -308,7 +341,13 @@ extension NewFormViewController: UITextFieldDelegate {
         selectedTextField = textField
         pickerView.reloadAllComponents()
         selectedPickerIndex = 0
+        showRelatedLabel(currentField: textField)
         pickerView.selectRow(selectedPickerIndex, inComponent: 0, animated: true)
+    }
+    
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        setRequiredLabelsTheme(view: textField, color: UIColor.gray, hideReqLbl: !textField.isEmpty())
+        self.validateRequiredFields()
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
