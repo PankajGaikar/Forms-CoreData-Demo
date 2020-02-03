@@ -11,6 +11,7 @@ import UIKit
 class NewFormViewController: UIViewController {
 
     //View Elements
+    //MARK:- Outlets
     @IBOutlet weak var formTitleContainer: UIView!
     @IBOutlet weak var formTitleLabel: UILabel!
     @IBOutlet weak var formTitleTextField: UITextField!
@@ -57,18 +58,23 @@ class NewFormViewController: UIViewController {
     @IBOutlet weak var attachmentOneButton: UIButton!
     @IBOutlet weak var attachmentTwoButton: UIButton!
 
+    //MARK: Class objects
     let pickerView = UIPickerView()
     let datePickerView = UIDatePicker()
 
     var selectedTextField: UITextField?
     var selectedPickerIndex = 0
 
+    //MARK: ViewModel instance
+    let newFormViewModel = NewFormViewModel()
     
+    //MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeViewProperties()
     }
     
+    //MARK: - Handle View Elements
     func initializeViewProperties() {
         formTitleLabel.isHidden = true
         formDescriptionLabel.isHidden = true
@@ -101,6 +107,7 @@ class NewFormViewController: UIViewController {
         createDatePicker()
     }
     
+    //MARK: PickerViews
     func createPickerView()  {
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
@@ -130,6 +137,7 @@ class NewFormViewController: UIViewController {
         self.dateTextField.inputView = datePickerView
     }
     
+    //MARK: - IBActions
     @IBAction func addNewAttachmentAction(_ sender: Any) {
         
     }
@@ -143,10 +151,20 @@ class NewFormViewController: UIViewController {
     }
     
     @IBAction func sendButtonAction(_ sender: Any) {
-        
+        let titleText = formTitleTextField.text ?? ""
+        let descriptionText = formDescriptionTextField.text ?? ""
+        let budget = Int(budgetTextField!.text!)! //Required field
+        let rate = !rateTextField.isEmpty() ? Rate(rawValue: rateTextField!.text!) ?? .noPreference : .noPreference
+        let payment = !paymentTextField.isEmpty() ? PaymentMethod(rawValue: paymentTextField!.text!) ?? .noPreference: .noPreference
+        let job = !self.jobTermTextField.isEmpty() ? JobTerm(rawValue: self.jobTermTextField!.text!) ?? .noPreference: .noPreference
+        let dateText = dateTextField.text ?? ""
+
+        newFormViewModel.saveFormData(formTitle: titleText, description: descriptionText, budget: budget, rate: rate, payment: payment, jobTerm: job, startDate: dateText, attachmentPath: "")
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
+//MARK: Picker completion Actions
 extension NewFormViewController {
     @objc func donedatePicker(){
         if selectedTextField == self.dateTextField {
@@ -181,6 +199,7 @@ extension NewFormViewController {
     }
 }
 
+//MARK: Helper Methods
 extension NewFormViewController {
     func validateRequiredFields() {
         if (!formTitleTextField.isEmpty()
@@ -261,6 +280,7 @@ extension NewFormViewController {
 
 }
 
+//MARK: Textfield delegates
 extension NewFormViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -281,6 +301,7 @@ extension NewFormViewController: UITextFieldDelegate {
 
 }
 
+//MARK: PickerView Delegates
 extension NewFormViewController:UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FormDataCellDelegate {
+    func deleteForm(index:Int)
+}
+
 class FormDataTableViewCell: UITableViewCell {
 
     @IBOutlet weak var optionButton: UIButton!
@@ -19,6 +23,9 @@ class FormDataTableViewCell: UITableViewCell {
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var jobTermLabel: UILabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    var delegate:FormDataCellDelegate?
+    var cellIndex:Int = -1
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,4 +37,7 @@ class FormDataTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func optionButtonAction(_ sender: Any) {
+        delegate?.deleteForm(index: cellIndex)
+    }
 }

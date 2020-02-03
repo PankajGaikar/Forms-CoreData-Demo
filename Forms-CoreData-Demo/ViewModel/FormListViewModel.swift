@@ -8,6 +8,24 @@
 
 import Foundation
 
+protocol DataFetchDelegate {
+    func dataFetchComplete()
+}
+
 class FormListViewModel {
+    //Array of data
+    var data = [FormData]()
     
+    //Data updation protocol instance
+    var dataFetchDelegate: DataFetchDelegate?
+    
+    func retrieveFormData() {
+        //FIXME: If fetch can be done on background.
+        self.data = StorageService().retrieveAllForms()
+        self.dataFetchDelegate?.dataFetchComplete()
+    }
+    
+    func deleteForm(id: String) -> Void {
+        StorageService().deleteForm(id: id)
+    }
 }

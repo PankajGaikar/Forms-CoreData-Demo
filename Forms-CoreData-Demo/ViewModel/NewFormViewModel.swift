@@ -32,5 +32,6 @@ class NewFormViewModel {
     
     func saveFormData(formTitle: String, description: String?, budget: Int, rate: Rate, payment: PaymentMethod, jobTerm: JobTerm, startDate: String, attachmentPath: String?) {
         formData = FormData(formTitle: formTitle, description: description, budget: budget, rate: rate, payment: payment, jobTerm: jobTerm, startDate: startDate, attachmentPath: attachmentPath)
+        StorageService().addItemToDatabase(formData: formData!)
     }
 }

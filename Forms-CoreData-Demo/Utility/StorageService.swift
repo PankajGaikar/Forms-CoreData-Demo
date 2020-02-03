@@ -41,7 +41,7 @@ class StorageService {
                 }
                 formDataArray.append(formDataObject)
             }
-            
+            return formDataArray
         } catch let error as NSError {
             // something went wrong, print the error.
             print(error.description)
@@ -58,7 +58,7 @@ class StorageService {
             let context = AppDelegate.appDelegate.persistentContainer.viewContext
             let fetchedResults = try context.fetch(fetchRequest)
             if let object = fetchedResults.first {
-                context.delete(object) //Database should have only one entitty with ID
+                context.delete(object) //Database should have only one entity with ID
                 AppDelegate.appDelegate.saveContext()
             }
         } catch let error as NSError {
