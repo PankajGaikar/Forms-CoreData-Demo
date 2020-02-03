@@ -151,9 +151,23 @@ class NewFormViewController: UIViewController {
     }
     
     @IBAction func sendButtonAction(_ sender: Any) {
-        let titleText = formTitleTextField.text ?? ""
-        let descriptionText = formDescriptionTextField.text ?? ""
-        let budget = Int(budgetTextField!.text!)! //Required field
+        guard let titleText = formTitleTextField.text, formTitleTextField.text?.isEmpty == false else {
+            updateRequiredFields(currentField: formTitleTextField)
+            return
+        }
+        
+        guard let descriptionText = formDescriptionTextField.text, formDescriptionTextField.text?.isEmpty == false else {
+            updateRequiredFields(currentField: formDescriptionTextField)
+            return
+        }
+        
+        guard let budgetText = budgetTextField.text, budgetTextField.text?.isEmpty == false else {
+            updateRequiredFields(currentField: budgetTextField)
+            return
+        }
+        
+        let budget = Int(budgetText)!
+        
         let rate = !rateTextField.isEmpty() ? Rate(rawValue: rateTextField!.text!) ?? .noPreference : .noPreference
         let payment = !paymentTextField.isEmpty() ? PaymentMethod(rawValue: paymentTextField!.text!) ?? .noPreference: .noPreference
         let job = !self.jobTermTextField.isEmpty() ? JobTerm(rawValue: self.jobTermTextField!.text!) ?? .noPreference: .noPreference
@@ -235,7 +249,7 @@ extension NewFormViewController {
             if self.budgetTextField.isEmpty() {
                 self.setRequiredLabelsTheme(view: self.budgetTextField, color: UIColor.red)
             }
-
+            
         case self.dateTextField:
             if self.formTitleTextField.isEmpty() {
                 self.setRequiredLabelsTheme(view: self.formTitleTextField, color: UIColor.red)
@@ -253,7 +267,7 @@ extension NewFormViewController {
             if self.dateTextField.isEmpty() {
                 self.setRequiredLabelsTheme(view: self.datePickerView, color: UIColor.red)
             }
-
+            
         default:
             break
         }
@@ -265,12 +279,15 @@ extension NewFormViewController {
             case self.formTitleTextField:
                 self.formTitleInfoLabel.textColor = (color == UIColor.red) ? color : UIColor.gray
                 self.formTitleInfoLabel.isHidden = hideReqLbl
+                
             case self.budgetTextField:
                 self.budgetInfoLabel.textColor = (color == UIColor.red) ? color : UIColor.gray
                 self.budgetInfoLabel.isHidden = hideReqLbl
+                
             case self.dateTextField:
                 self.dateInfoLabel.textColor = (color == UIColor.red) ? color : UIColor.gray
                 self.dateInfoLabel.isHidden = hideReqLbl
+                
             default:
                 break
             }
